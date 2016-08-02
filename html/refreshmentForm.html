@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="refreshmentApp">
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>Refreshment Request</title>
+
+      <link href="../css/material.blue-amber.min.css" rel="stylesheet">
+      <link href="../css/refreshmentFormStyle.css" rel="stylesheet"> 
+      <link href="../css/bootstrap.css" rel="stylesheet">
+      <link href="../css/pure.css" rel="stylesheet">
+      <link href="../css/angular-material.css" rel="stylesheet">
+      <link href="../css/materialIcons.css" rel="stylesheet">
+      <link href="../css/pure.css">
+
+      <script src="../js/angular.min.js"></script>
+      <script src="../js/jquery.js"></script>
+      <script src="../js/materialDesign.min.js"></script>
+      <script src="../js/bootstrap.js"></script>
+      <script src="../js/refreshmentApp.js"></script>
+      <script src="../js/angular-animate.min.js"></script>
+      <script src="../js/angular-material.js"></script>
+      <script src="../js/angular-aria.min.js"></script>
+      <script src="../js/angular-messages.min.js"></script>
+  </head>
+
+  <body ng-controller="RefreshmentController as refreshmentCtrl" ng-cloak>
+    <form class="form-inline" ng-submit="refreshmentCtrl.submit(theRefreshmentForm.$valid)" name="theRefreshmentForm" novalidate>
+        <header class="mdl-layout__header">
+          <span class="mdl-layout-title" id="headerText">New Refreshment Request</span>
+        </header>
+
+        <p id="allFieldsRequiredText">*All fields are required</p>
+
+        <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+          <div class="mdl-card__title">
+            <h2 class="mdl-card__title-text">Refreshment Information</h2>
+          </div>
+          <div class="mdl-card__supporting-text">
+            Date refreshment required:
+            <md-datepicker ng-model="refreshmentCtrl.orderDate" md-placeholder="Order Date"></md-datepicker>
+            <br><br>
+            Quantity: 
+            <div class="form-group" ng-class="{
+                                              'has-error': !theRefreshmentForm.refreshmentQuantity.$valid && theRefreshmentForm.$submitted,
+                                              'has-success': theRefreshmentForm.refreshmentQuantity.$valid && theRefreshmentForm.$submitted
+                                              }">
+              <input class="form-control" name="refreshmentQuantity" type="number" ng-model="refreshmentCtrl.quantity" required>
+            </div>
+            <br><br>
+            <p class="help-block"> 
+                  <span ng-show="theRefreshmentForm.refreshmentQuantity.$error.required && theRefreshmentForm.$submitted" style="color:red">*Please select a refreshment quantity<br></span>
+                </p>    
+          </div>             
+        </div>
+        <refreshment-navigation></refreshment-navigation>
+    </form>
+
+<!--    <pre>{{ theRefreshmentForm | json}}<pre><br><br><br><br> -->
+  </body>
+</html>

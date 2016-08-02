@@ -1,0 +1,37 @@
+<div ng-show="cateringCtrl.foodChoice == 'deli'">
+  <span style="margin-left:8%">Time lunch required: </span>
+  <div class="form-group" ng-class="{
+                                    'has-error': !theForm.lunchHour.$valid && theForm.$submitted,
+                                    'has-success': theForm.lunchHour.$valid && theForm.$submitted
+                                    }">
+    <select class="form-control" name="lunchHour" ng-model="cateringCtrl.lunchHour" ng-required="cateringCtrl.foodChoice =='deli'" ng-options="lunchHour for lunchHour in cateringCtrl.lunchHoursList">
+      <option value="">-</option>
+    </select>
+  </div>
+  <span style="font-weight:bold">:</span>
+  <div class="form-group" ng-class="{
+                                    'has-error': !theForm.lunchMinute.$valid && theForm.$submitted,
+                                    'has-success': theForm.lunchMinute.$valid && theForm.$submitted
+                                    }">
+    <select class="form-control" ng-model="cateringCtrl.lunchMinute" name="lunchMinute" ng-required="cateringCtrl.foodChoice =='deli'" ng-options="lunchMinute for lunchMinute in cateringCtrl.lunchMinutesList">
+      <option value="">-</option>
+    </select>
+  </div>
+  <div class="form-group" ng-class="{
+                                    'has-error': !theForm.lunchTimezone.$valid && theForm.$submitted,
+                                    'has-success': theForm.lunchTimezone.$valid && theForm.$submitted
+                                    }">
+    <select class="form-control" ng-model="cateringCtrl.lunchTimezone" name="lunchTimezone" ng-required="cateringCtrl.foodChoice =='deli'" ng-options="lunchTimezone for lunchTimezone in cateringCtrl.lunchTimezoneList">
+      <option value="">-</option>
+    </select>
+  </div>
+  <br><br>
+  <span style="margin-left: 8%">Quantity:</span>
+  <div class="form-group" style="margin-left: 1%" ng-class="{
+                                    'has-error': !theForm.lunchQuantity.$valid && theForm.$submitted,
+                                    'has-success': theForm.lunchQuantity.$valid && theForm.$submitted
+                                    }">
+    <input class="form-control" name="lunchQuantity" ng-required="cateringCtrl.foodChoice =='deli'" onkeypress='return event.charCode >= 48 && event.charCode <= 57' ng-model="cateringCtrl.quantity">
+  </div>
+  <br><br>
+</div>

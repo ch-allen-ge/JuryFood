@@ -1,0 +1,114 @@
+body {
+	margin-top: 30px;
+	margin-bottom: 50px;
+	background: none;
+}
+
+#fadedRectangle {
+  background: rgb(256, 256, 256);
+  background: rgba(256, 256, 256, 0.8);
+
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width:70%; 
+  height:80%;
+  margin: auto;
+  z-index:0;
+}
+
+#topFadedLine {
+  z-index: 1;
+  background: black;
+  position: relative;
+  width: 60%; 
+  height: 0.5%;
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5%;
+}
+
+#bottomFadedLine {
+  z-index: 1;
+  background: black;
+  position: relative;
+  width: 60%; 
+  height: 0.5%;
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 2.5%;
+}
+
+@font-face {
+	font-family: Mono;
+	src: url('MTCORSVA.woff');
+}
+
+#titleText {
+  color: black;
+  margin: auto;
+  font-size: 400%;
+  z-index: 1;
+  text-align: center;
+  font-family: Mono;
+  margin: 2%;
+}
+
+.selectionButton {
+  position: relative;
+  z-index: 2;
+  margin: 4%;
+  max-width: 100%;
+  margin-top:150px;
+}
+
+.hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
+
+
+.hovereffect img {
+  display: inline-block;
+  position: relative;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.hovereffect img:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+#descriptionText {
+  position: relative;
+  z-index: 2;
+  color: black;
+  font-size: 200%;
+  text-align: center;
+  margin-top: 35%;
+}
+
+#selectionText {
+  position: relative;
+  z-index: 1;
+  color: black;
+  font-size: 300%;
+  margin-top: 20%;
+}
+
+[ng-click],
+[data-ng-click],
+[x-ng-click] {
+    cursor: pointer;
+}

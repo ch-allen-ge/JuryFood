@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cateringApp">
+
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+      <title>Food Request</title>
+
+      <link href="../css/materialDesign.min.css" rel="stylesheet">
+      <link href="../css/cateringFormStyle.css" rel="stylesheet">
+      <link href="../css/bootstrap.css" rel="stylesheet">
+      <link href="../css/pure.css" rel="stylesheet">
+      <link href="../css/angular-material.css" rel="stylesheet">
+      <link href="../css/materialIcons.css" rel="stylesheet">
+      <link href="../css/pure.css">
+
+      <script src="../js/angular.min.js"></script>
+      <script src="../js/jquery.js"></script>
+      <script src="../js/materialDesign.min.js"></script>
+      <script src="../js/bootstrap.js"></script>
+      <script src="../js/cateringApp.js"></script>
+      <script src="../js/angular-animate.min.js"></script>
+      <script src="../js/angular-material.js"></script>
+      <script src="../js/angular-aria.min.js"></script>
+      <script src="../js/angular-messages.min.js"></script>
+  </head>
+
+  <body ng-controller="CateringController as cateringCtrl" ng-cloak>
+    <form class="form-inline" ng-submit="cateringCtrl.submit(theCateringForm.$valid)" name="theCateringForm" novalidate>
+      <!--header -->
+      <div>
+        <header class=" w3-container mdl-layout__header">
+          <span class="mdl-layout-title" id="headerText">New Catering Request</span>
+        </header>
+
+          <p id="allFieldsRequiredText">*All fields are required</p>
+        
+          <!-- TOP CARD -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Case Information</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <div class="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.office.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.office.$valid && theCateringForm.$submitted
+                                                  }">
+                Case Number: 
+                  <select class="form-control" name="office" ng-model="cateringCtrl.office" ng-options="office for office in cateringCtrl.officeList" required>
+                        <option value="">Office</option>
+                  </select>
+                </div>
+                <div class="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.year.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.year.$valid && theCateringForm.$submitted
+                                                  }">
+                :
+                  <select class="form-control" name="year" ng-model="cateringCtrl.year" ng-options="year for year in cateringCtrl.yearList" required>
+                        <option value="">Year</option>
+                  </select>
+                </div>
+                <div class="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.caseType.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.caseType.$valid && theCateringForm.$submitted
+                                                  }">
+                -
+                  <select class="form-control" name="caseType" ng-model="cateringCtrl.caseType" ng-options="caseType for caseType in cateringCtrl.caseTypeList" required>
+                        <option value="">Case Type</option>
+                  </select>
+                </div>
+                -
+                <div class="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.caseNumber.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.caseNumber.$valid && theCateringForm.$submitted
+                                                  }">
+                  <input class="form-control" name="caseNumber" placeholder="Case Number" ng-pattern='/^\d{3,5}$/' ng-model="cateringCtrl.caseNumber" style="width:140px" required>
+                </div>
+                <div class="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.judge.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.judge.$valid && theCateringForm.$submitted
+                                                  }">
+                -
+                  <select class="form-control" name="judge" ng-model="cateringCtrl.judge" ng-options="judge for judge in cateringCtrl.judgeList" required>
+                        <option value="">Judge</option>
+                  </select>
+                </div>
+                <br><br><br>
+                <div clas="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.email.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.email.$valid && theCateringForm.$submitted
+                                                  }">
+                Your Email Address:
+                  <input class="form-control" placeholder="John_Doe" name="email" type="text" ng-pattern='/\S+_\S+/' ng-model="cateringCtrl.emailShort" required>
+                 @mad.uscourts.gov
+                </div>
+                <br>
+                <div class="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.phone.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.phone.$valid && theCateringForm.$submitted
+                                                  }">
+                  Your Telephone Extension: 
+                  <input class="form-control" name="phone" ng-pattern="/^\d{4}$/" ng-model="cateringCtrl.phone" style="width:70px" required>
+                </div>
+                <br><br>
+                <div class="form-group" ng-class="{
+                                                  'has-error': !theCateringForm.jurors.$valid && theCateringForm.$submitted,
+                                                  'has-success': theCateringForm.jurors.$valid && theCateringForm.$submitted
+                                                  }">
+                  Total Number of Sitting Jurors: 
+                  <input class="form-control" name="jurors" ng-model="cateringCtrl.jurors" style="width:60px" required>
+                </div>
+
+                <p class="help-block"> 
+                  <span ng-show="theCateringForm.office.$error.required && theCateringForm.$submitted" style="color:red">*Please select an office<br></span>
+                  <span ng-show="theCateringForm.year.$error.required && theCateringForm.$submitted" style="color:red">*Please select a year<br></span>
+                  <span ng-show="theCateringForm.caseType.$error.required && theCateringForm.$submitted" style="color:red">*Please select a case type<br></span>
+                  <span ng-show="theCateringForm.caseNumber.$invalid && theCateringForm.$submitted" style="color:red">*Please enter a case number between 3 and 5 digits<br></span>
+                  <span ng-show="theCateringForm.judge.$error.required && theCateringForm.$submitted" style="color:red">*Please select a judge<br></span>
+                  <span ng-show="theCateringForm.email.$invalid && theCateringForm.$submitted" style="color:red">*Please enter a correct email<br></span>
+                  <span ng-show="theCateringForm.phone.$invalid && theCateringForm.$submitted" style="color:red">*Please enter a 4 digit phone number<br></span>
+                  <span ng-show="theCateringForm.jurors.$invalid && theCateringForm.$submitted" style="color:red">*Please enter the number of sitting jurors<br></span>
+                </p>            
+              </div>
+          </div>
+
+          <!-- MIDDLE CARD -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Food Information</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                Date food required:
+                  <md-datepicker ng-model="cateringCtrl.myBeginDate" md-placeholder="Beginning Date"></md-datepicker>
+                  <span style="margin-left: 10px;">through</span> 
+                  <md-datepicker ng-model="cateringCtrl.myEndDate" md-placeholder="Ending Date"></md-datepicker>
+                  <br><br>
+                Type of Meal Requested
+                <div style="margin-left:23%">
+                  <md-radio-group name="foodChoices" ng-model="cateringCtrl.foodChoice" required>
+                    <md-radio-button value="breakfast" class="md-primary" onclick="$('#switchID').removeClass('md-checked')">Exchange Breakfast: Assorted pastries and bagels, fresh fruit platter, assorted juices, coffee and tea</md-radio-button>
+                      <breakfast-options></breakfast-options>
+                    <md-radio-button value="deli" onclick="$('#switchID').removeClass('md-checked')">Gourmet Deli: Assorted sandwiches, pasta or green salad, cookies and brownies, assorted soda/water</md-radio-button>
+                      <lunch-options></lunch-options>
+                    <md-radio-button value="breakfastdeli" onclick="$('#switchID').removeClass('md-checked')">Both Exchange Breakfast and Gourmet Deli</md-radio-button>
+                      <both-breakfast></both-breakfast>
+                      <both-lunch></both-lunch>
+                    <md-radio-button value="neither" onclick="$('#switchID').addClass('md-checked');">Neither Breakfast nor Lunch. I will select other items below</md-radio-button>                 
+                  </md-radio-group>     
+                </div>
+
+                <md-switch ng-model="cateringCtrl.otherItemsNeeded" id="switchID">
+                    Other Items Needed:
+                </md-switch>
+
+                <!-- CUSTOM FOOD ORDER -->
+                <div ng-cloak ng-show="cateringCtrl.otherItemsNeeded || cateringCtrl.foodChoice==='neither'">
+                  <div id="wrapper" style="text-align: center;">    
+                    <div style="display: inline-block;">
+                      <custom-meal></custom-meal><br><br>
+                      <!-- QUANTITY -->
+                      <div style="text-align:center; float:left; margin-right: 10px">
+                        <div style="margin:auto">
+                          <span>Quantity</span>
+                          <br>
+                          <div ng-repeat="item in cateringCtrl.customFood">
+                            <md-input-container>
+                              <input type="text" ng-model="item.foodQuantity" style="text-align:center">
+                            </md-input-container>   
+                          </div>                           
+                        </div>                
+                      </div>
+
+                      <!-- Food Name -->
+                      <div style="text-align:center; float:left">
+                        <div style="margin:auto">
+                          <span>Item</span>
+                          <br>
+                          <div ng-repeat="item in cateringCtrl.customFood">
+                            <md-input-container>
+                              <input type="text" ng-model="item.foodName" style="text-align:center">
+                            </md-input-container>   
+                          </div>                           
+                        </div>     
+                      </div>  
+                    </div>
+                  </div>
+
+                <!-- ADD BUTTON -->
+                  <div style="text-align:center">
+                    <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored mdl-js-ripple-effect" ng-click="cateringCtrl.addFood()">
+                      <i class="material-icons">add</i>
+                    </button>
+                  </div>
+              </div>
+
+              <p class="help-block">               
+                <span ng-show="theCateringForm.foodChoices.$error.required && theCateringForm.$submitted" style="color:red">*Please select a meal type<br></span>
+
+                <!-- BREAKFAST ERRORS  -->
+                <span ng-show="theCateringForm.breakfastHour.$error.required && theCateringForm.$submitted" style="color:red">*Please select an hour for breakfast<br></span>
+                <span ng-show="theCateringForm.breakfastMinute.$error.required && theCateringForm.$submitted" style="color:red">*Please select a minute for breakfast<br></span>
+                <span ng-show="theCateringForm.breakfastTimezone.$error.required && theCateringForm.$submitted" style="color:red">*Please select either AM or PM for breakfast<br></span>
+                <span ng-show="theCateringForm.breakfastQuantity.$error.required && theCateringForm.$submitted" style="color:red">*Please enter a quantity for breakfast<br></span>
+
+                <!-- LUNCH ERRORS  -->
+                <span ng-show="theCateringForm.lunchHour.$error.required && theCateringForm.$submitted" style="color:red">*Please select an hour for lunch<br></span>
+                <span ng-show="theCateringForm.lunchMinute.$error.required && theCateringForm.$submitted" style="color:red">*Please select a minute for lunch<br></span>
+                <span ng-show="theCateringForm.lunchTimezone.$error.required && theCateringForm.$submitted" style="color:red">*Please select either AM or PM for lunch<br></span>
+                <span ng-show="theCateringForm.lunchQuantity.$error.required && theCateringForm.$submitted" style="color:red">*Please enter a quantity for lunch<br></span>
+
+                <!-- BREAKFAST AND LUNCH ERRORS  -->
+                <span ng-show="theCateringForm.theBreakfastHour.$error.required && theCateringForm.$submitted" style="color:red">*Please select an hour for breakfast<br></span>
+                <span ng-show="theCateringForm.theBreakfastMinute.$error.required && theCateringForm.$submitted" style="color:red">*Please select a minute for breakfast<br></span>
+                <span ng-show="theCateringForm.theBreakfastTimezone.$error.required && theCateringForm.$submitted" style="color:red">*Please select either AM or PM for breakfast<br></span>
+
+                <span ng-show="theCateringForm.theLunchHour.$error.required && theCateringForm.$submitted" style="color:red">*Please select an hour for lunch<br></span>
+                <span ng-show="theCateringForm.theLunchMinute.$error.required && theCateringForm.$submitted" style="color:red">*Please select a minute for lunch<br></span>
+                <span ng-show="theCateringForm.theLunchTimezone.$error.required && theCateringForm.$submitted" style="color:red">*Please select either AM or PM for lunch<br></span>
+                <span ng-show="theCateringForm.bothQuantity.$error.required && theCateringForm.$submitted" style="color:red">*Please enter a quantity for breakfast and lunch<br></span>
+
+                <!-- CUSTOM FOOD ERRORS -->
+                <span ng-show="theCateringForm.theCustomHour.$error.required && theCateringForm.$submitted" style="color:red">*Please select an hour for your items<br></span>
+                <span ng-show="theCateringForm.theCustomMinute.$error.required && theCateringForm.$submitted" style="color:red">*Please select a minute for your items<br></span>
+                <span ng-show="theCateringForm.theCustomTimezone.$error.required && theCateringForm.$submitted" style="color:red">*Please select either AM or PM for your items<br></span>
+              </p>      
+            </div>
+          </div>
+
+          <!-- BOTTOM CARD -->
+          <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+              <div class="mdl-card__title">
+                <h2 class="mdl-card__title-text">Additional Information</h2>
+              </div>
+              <div class="mdl-card__supporting-text">
+                <div class="form-group">
+                  <textarea class="form-control" rows="5" cols="120" ng-model="cateringCtrl.additionalComments" style="overflow:visible"></textarea>
+                </div>
+              </div>
+            
+          </div>
+          <br><br><br><br>
+        </div>
+        <catering-navigation></catering-navigation>
+    </form>
+     <pre>{{ theCateringForm.breakfastHour | json}}<pre><br><br><br><br> 
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<div class="hovereffect" style="margin-top:270px;">
+	<img class="selectionButton" src="/images/catering-icon.png" ng-mouseover="txtCtrl.cateringSelected()" ng-mouseleave="txtCtrl.reset()" ng-click="txtCtrl.cateringRedirect()">
+	<img class="selectionButton" src="/images/tea-icon.png" ng-mouseover="txtCtrl.refreshmentSelected()" ng-mouseleave="txtCtrl.reset()" ng-click="txtCtrl.refreshmentRedirect()">
+	<img class="selectionButton" src="/images/Button-Close-icon.png" ng-mouseover="txtCtrl.cancelSelected()" ng-mouseleave="txtCtrl.reset()" ng-click="txtCtrl.cancelRedirect()">
+</div>
+
+<div id="fadedRectangle" class="animated fadeIn">
+    <div class="animated pulse" id="topFadedLine"></div>
+    <div class="animated slideInDown"id="titleText">Jury Food <br> Request Utility</div>
+    <div class="animated pulse" id="bottomFadedLine"></div>
+</div>
+
+<div style="text-align:center">
+	<span id="selectionText">{{txtCtrl.selection}}</span>
+</div>

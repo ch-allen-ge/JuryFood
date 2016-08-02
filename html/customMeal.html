@@ -1,0 +1,29 @@
+<div ng-show="cateringCtrl.foodChoice =='neither'">
+  <span style="margin-left:8%">Time required: </span>
+  <div class="form-group" ng-class="{
+                                                  'has-error': !theForm.customHour.$valid && theForm.$submitted,
+                                                  'has-success': theForm.customHour.$valid && theForm.$submitted
+                                                  }">
+    <select class="form-control" name="theCustomHour" ng-model="cateringCtrl.customHour" ng-required="cateringCtrl.foodChoice =='neither'" ng-options="breakfastHour for breakfastHour in cateringCtrl.breakfastHoursList">
+      <option value="">-</option>
+    </select>
+  </div>
+  <span style="font-weight:bold">:</span>
+  <div class="form-group" ng-class="{
+                                                  'has-error': !theForm.customMinute.$valid && theForm.$submitted,
+                                                  'has-success': theForm.customMinute.$valid && theForm.$submitted
+                                                  }">
+    <select class="form-control" name="theCustomMinute" ng-model="cateringCtrl.customMinute" ng-required="cateringCtrl.foodChoice =='neither'" ng-options="breakfastMinute for breakfastMinute in cateringCtrl.breakfastMinutesList">
+      <option value="">-</option>
+    </select>
+  </div>
+  <div class="form-group" ng-class="{
+                                                  'has-error': !theForm.customTimezone.$valid && theForm.$submitted,
+                                                  'has-success': theForm.customTimezone.$valid && theForm.$submitted
+                                                  }">
+    <select class="form-control" name="theCustomTimezone" ng-model="cateringCtrl.customTimezone" ng-required="cateringCtrl.foodChoice =='neither'" ng-options="breakfastTimezone for breakfastTimezone in cateringCtrl.breakfastTimezoneList">
+      <option value="">-</option>
+    </select>
+  </div>
+  <br>
+</div>

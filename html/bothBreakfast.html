@@ -1,0 +1,29 @@
+<div ng-show="cateringCtrl.foodChoice =='breakfastdeli'">
+  <span style="margin-left:8%">Time breakfast required: </span>
+  <div class="form-group" ng-class="{
+                                    'has-error': !theForm.theBreakfastHour.$valid && theForm.$submitted,
+                                    'has-success': theForm.theBreakfastHour.$valid && theForm.$submitted
+                                    }">
+    <select class="form-control" name="theBreakfastHour" ng-model="cateringCtrl.breakfastHour" ng-options="breakfastHour for breakfastHour in cateringCtrl.breakfastHoursList" ng-required="cateringCtrl.foodChoice =='breakfastdeli'">
+      <option value="">-</option>
+    </select>
+  </div>
+  <span style="font-weight:bold">:</span>
+  <div class="form-group" ng-class="{
+                                    'has-error': !theForm.theBreakfastMinute.$valid && theForm.$submitted,
+                                    'has-success': theForm.theBreakfastMinute.$valid && theForm.$submitted
+                                    }">
+    <select class="form-control" name="theBreakfastMinute" ng-model="cateringCtrl.breakfastMinute" ng-options="breakfastMinute for breakfastMinute in cateringCtrl.breakfastMinutesList" ng-required="cateringCtrl.foodChoice =='breakfastdeli'">
+      <option value="">-</option>
+    </select>
+  </div>
+  <div class="form-group" ng-class="{
+                                    'has-error': !theForm.theBreakfastTimezone.$valid && theForm.$submitted,
+                                    'has-success': theForm.theBreakfastTimezone.$valid && theForm.$submitted
+                                    }">
+    <select class="form-control" name="theBreakfastTimezone" ng-model="cateringCtrl.breakfastTimezone" ng-options="breakfastTimezone for breakfastTimezone in cateringCtrl.breakfastTimezoneList" ng-required="cateringCtrl.foodChoice =='breakfastdeli'">
+      <option value="">-</option>
+    </select>
+  </div>
+  <br><br>
+</div>

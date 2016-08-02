@@ -1,0 +1,25 @@
+{
+  "name": "juryfood",
+  "version": "1.0.0",
+  "description": "jury food app",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.13.4",
+    "nodemailer": "^2.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d4rkmage80/JuryFood.git"
+  },
+  "author": "Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/d4rkmage80/JuryFood/issues"
+  },
+  "homepage": "https://github.com/d4rkmage80/JuryFood#readme"
+}

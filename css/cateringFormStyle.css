@@ -1,0 +1,51 @@
+#headerText {
+	font-size: 200%;
+	text-align: center;
+	margin-top: 17px;
+}
+
+#allFieldsRequiredText {
+	color: black;
+	text-align: center;
+	font-size: 150%;
+	margin-top: 30px;
+}
+
+.demo-card-wide.mdl-card {
+  height: auto;
+  width: 900px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+.demo-card-wide > .mdl-card__title {
+  height: 10%;
+  background: #8BC34A;
+  color: white;
+}
+
+.radioButtondemoBasicUsage body {
+  padding: 20px; }
+.radioButtondemoBasicUsage hr {
+  margin-left: -20px;
+  opacity: 0.3; }
+.radioButtondemoBasicUsage md-radio-group {
+  width: 150px; }
+.radioButtondemoBasicUsage p:last-child {
+  padding-bottom: 50px; }
+.radioButtondemoBasicUsage [ng-controller] {
+  padding-left: 20px; }
+.radioButtondemoBasicUsage .radioValue {
+  margin-left: 5px;
+  color: #0f9d58;
+  font-weight: bold;
+  padding: 5px; }
+.radioButtondemoBasicUsage md-icon {
+  margin: 20px;
+  margin-top: 0;
+  width: 128px;
+  height: 128px; }
+.radioButtondemoBasicUsage .ipsum {
+  color: saddlebrown;
+  font-size: 0.9em; }
